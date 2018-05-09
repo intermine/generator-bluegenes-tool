@@ -1,10 +1,8 @@
 {
-  "accepts": [
-    <%= accepts %>
-  ],
-  "classes": [
-    <%= classes %>
-  ],
+  "accepts": "<%- accepts %>"  ,
+  "classes":
+    <%- classes %>
+  ,
   "columnMapping": {
     "Gene": {
       "id": "primaryIdentifier"
@@ -17,5 +15,5 @@
     "css" : "dist/style.css",
     "js" : "dist/bundle.js"
   },
-  "toolName" : <%= toolNameHuman %>
+  "toolName" : "<%= toolNameHuman %>"
 }

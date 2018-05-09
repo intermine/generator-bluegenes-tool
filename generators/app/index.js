@@ -61,7 +61,6 @@ module.exports = class extends Generator {
       }
 
     ];
-
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
       this.props = props;
@@ -82,7 +81,7 @@ module.exports = class extends Generator {
       this.destinationPath('config.json'), {
         accepts: this.props.accepts,
         toolNameHuman: this.props.toolNameHuman,
-        classes : this.props.classes
+        classes : stringToMultiValue(this.props.classes)
       }
     );
   }
@@ -91,3 +90,11 @@ module.exports = class extends Generator {
     this.installDependencies();
   }
 };
+
+function stringToMultiValue(values) {
+  //split and trim values. Return pseudo-aray.
+  var vals = values.split(",");
+  //no more whitespace, please
+  vals = vals.map(val => val.replace(/\s+/g, ''))
+  return JSON.stringify(vals);
+}
