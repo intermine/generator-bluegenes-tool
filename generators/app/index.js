@@ -77,6 +77,13 @@ module.exports = class extends Generator {
       }
     );
     this.fs.copyTpl(
+      this.templatePath('webpack.config.js'),
+      this.destinationPath('webpack.config.js'), {
+        toolName: this.props.toolNameComputer
+      }
+    );
+
+    this.fs.copyTpl(
       this.templatePath('config.json'),
       this.destinationPath('config.json'), {
         accepts: this.props.accepts,
