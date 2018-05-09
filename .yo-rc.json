@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Yo Yehudi",
+      "authorEmail": "yo@intermine.org",
+      "authorUrl": "http://yo-yehudi.com"
+    }
+  }
+}
