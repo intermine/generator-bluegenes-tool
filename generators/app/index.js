@@ -2,6 +2,7 @@
 const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
+const inquirer = require('inquirer')
 
 module.exports = class extends Generator {
   prompting() {
@@ -10,13 +11,55 @@ module.exports = class extends Generator {
       yosay(`Welcome to the laudable ${chalk.red('generator-bluegenes-tool')} generator!`)
     );
 
-    const prompts = [
+    const prompts = [{
+        type: 'input',
+        name: 'toolNameComputer',
+        message: 'What shall we name your project? This is a computer name with no spaces or special characters.',
+        default: 'bluegenes-toolnamehere'
+      },
       {
-        type: 'confirm',
-        name: 'someAnswer',
-        message: 'Would you like to enable this option?',
-        default: true
+        type: 'input',
+        name: 'toolNameHuman',
+        message: 'Thanks! Now, give me a human name for the project - e.g. "Protein Feature Viewer"',
+        default: 'New Bluegenes Tool'
+      },
+      // {
+      //   type: 'input',
+      //   name: 'mine',
+      //   message: 'Brilliant. What InterMine would you like to start with?',
+      //   default: 'New Bluegenes Tool'
+      // }
+      {
+        type: 'input',
+        name: 'classes',
+        message: 'Fabulous. Which report pages do you expect this tool to work for, e.g. "Gene" or "Protein"? Separate with commas and put * for all.',
+        default: 'Gene'
+      },
+      {
+        type: 'checkbox',
+        message: 'Awesome. What type of InterMine data can you work with?',
+        name: 'accepts',
+        choices: [
+          new inquirer.Separator(' = Report page = '),
+          {
+            name: 'id'
+          },
+          new inquirer.Separator(' = List page = '),
+          {
+            name: 'ids'
+          },
+          {
+            name: 'rows'
+          },
+          {
+            name: 'records'
+          },
+          {
+            name: 'tablerows'
+          }
+        ]
       }
+
     ];
 
     return this.prompt(prompts).then(props => {
@@ -26,9 +69,21 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    this.fs.copy(
-      this.templatePath('dummyfile.txt'),
-      this.destinationPath('dummyfile.txt')
+    this.fs.copyTpl(
+      this.templatePath('demo.html'),
+      this.destinationPath('demo.html'), {
+        title: this.props.toolNameHuman,
+        toolName: this.props.toolNameComputer,
+        mineUrl: 'http://flymine.org/query'
+      }
+    );
+    this.fs.copyTpl(
+      this.templatePath('config.json'),
+      this.destinationPath('config.json'), {
+        accepts: this.props.accepts,
+        toolNameHuman: this.props.toolNameHuman,
+        classes : this.props.classes
+      }
     );
   }
 

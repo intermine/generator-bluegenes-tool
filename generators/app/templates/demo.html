@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= title %></title>
+
+    <!-- You can assume imjs is on the window.  -->
+    <script src="node_modules/imjs/dist/im.min.js"></script>
+
+    <link rel="stylesheet" href="dist/style.css">
+</head>
+
+<body>
+    <div class="<%= toolName %>" id='yourDiv' />
+    <script>
+        window.onload = function () {
+            //The element to attach the viewer to. Must be an existing DOM element
+            var elem = document.getElementById("yourDiv"),
+                //InterMine service, including URL and token.
+                imURL = {
+                    root: "<%= mineUrl %>"
+                    //could include token here too if we had one
+                },
+                //this is an example of data that could be passed to this tool be BlueGenes
+                //in reality (outside the demo) this would be dynamic and not hard-coded
+                dataToInitialiseToolWith = {
+                    "class": "Protein",
+                    "format": "id",
+                    //right now these ids correspond to two
+                    //isoforms of lola2
+                    "value": 1172489
+                    //"value": 19223848
+                },
+                toolState = null; //to be confirmed how we use this.
+            //showing how we dynamically load the config file
+            $.ajax("config.json").then(function (config) {
+                <%= toolName %>.main(
+                    elem, imURL, dataToInitialiseToolWith, toolState, config);
+            });
+        }
+    </script>
+    <script src="dist/bundle.js"></script>
+
+</body>
+
+</html>
