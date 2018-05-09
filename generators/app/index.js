@@ -58,8 +58,21 @@ module.exports = class extends Generator {
             name: 'tablerows'
           }
         ]
+      },
+      {
+        type: 'input',
+        name: 'licence',
+        message: 'Nice. What licence do you want to give to this tool?',
+        type: 'list',
+        choices: ["MIT", "Apache-2.0", "LGPL-2.1", "No Licence"],
+        default: "MIT"
+      },
+      {
+        type: 'input',
+        name: 'author',
+        message: 'Last one! Who\'s the author of this tool?',
+        type: 'input',
       }
-
     ];
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
@@ -86,16 +99,24 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       this.templatePath('config.json'),
       this.destinationPath('config.json'), {
-        accepts: this.props.accepts,
+        accepts: JSON.stringify(this.props.accepts),
         toolNameHuman: this.props.toolNameHuman,
-        classes : stringToMultiValue(this.props.classes)
+        classes: stringToMultiValue(this.props.classes)
       }
     );
-  }
 
-  install() {
-    this.installDependencies();
-  }
+  this.fs.copyTpl(
+    this.templatePath('package.json'),
+    this.destinationPath('package.json'), {
+      author: this.props.author,
+      toolNameHuman: this.props.toolNameHuman,
+      licence: this.props.licence
+    }
+  );
+}
+install() {
+  this.installDependencies();
+}
 };
 
 function stringToMultiValue(values) {
