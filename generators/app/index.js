@@ -5,6 +5,12 @@ const yosay = require('yosay');
 const inquirer = require('inquirer')
 
 module.exports = class extends Generator {
+  initializing() {
+    this.composeWith(require.resolve('generator-license'), {
+    defaultLicense: 'MIT' // (optional) Select a default license
+  })
+}
+
   prompting() {
     // Have Yeoman greet the user.
     this.log(
@@ -59,20 +65,6 @@ module.exports = class extends Generator {
             name: 'tablerows'
           }
         ]
-      },
-      {
-        type: 'input',
-        name: 'licence',
-        message: 'Nice. What licence do you want to give to this tool?',
-        type: 'list',
-        choices: ["MIT", "Apache-2.0", "LGPL-2.1", "No Licence"],
-        default: "MIT"
-      },
-      {
-        type: 'input',
-        name: 'author',
-        message: 'Last one! Who\'s the author of this tool?',
-        type: 'input',
       }
     ];
     return this.prompt(prompts).then(props => {
