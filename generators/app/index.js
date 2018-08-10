@@ -86,7 +86,7 @@ module.exports = class extends Generator {
       this.destinationPath('demo.html'), {
         title: this.props.toolNameHuman,
         toolName: this.props.toolNameComputer,
-        mineUrl: 'http://flymine.org/query'
+        mineUrl: 'http://humanmine.org/human'
       }
     );
     this.fs.copyTpl(
@@ -112,6 +112,28 @@ module.exports = class extends Generator {
       toolNameHuman: this.props.toolNameHuman,
       licence: this.props.licence
     }
+  );
+
+  this.fs.copyTpl(
+    this.templatePath('README.md'),
+    this.destinationPath('README.md'), {
+      author: this.props.author,
+      toolNameHuman: this.props.toolNameHuman,
+      toolNameComputer: this.props.toolNameComputer,
+      licence: this.props.licence
+    }
+  );
+
+  this.fs.copyTpl(
+    this.templatePath('src/style.less'),
+    this.destinationPath('src/style.less'), {
+      toolNameComputer: this.props.toolNameComputer
+    }
+  );
+
+  this.fs.copyTpl(
+    this.templatePath('src/index.js'),
+    this.destinationPath('src/index.js'), {}
   );
 }
 install() {

@@ -17,6 +17,7 @@
     <div class="<%= toolName %>" id='yourDiv' />
     <script>
         window.onload = function () {
+
             //The element to attach the viewer to. Must be an existing DOM element
             var elem = document.getElementById("yourDiv"),
                 //InterMine service, including URL and token.
@@ -26,16 +27,19 @@
                 },
                 //this is an example of data that could be passed to this tool be BlueGenes
                 //in reality (outside the demo) this would be dynamic and not hard-coded
+                // to an ID.
                 dataToInitialiseToolWith = {
                     "class": "Protein",
                     "format": "id",
-                    //right now these ids correspond to two
-                    //isoforms of lola2
-                    "value": 1172489
-                    //"value": 19223848
+                    // right now this id corresponds to Human GATA1
+                    // this is a bit fragile since IDs change with every build
+                    // but we don't want to make the code more complicated than
+                    // needed for the demo.
+                    "value": 1276963
                 },
                 toolState = null; //to be confirmed how we use this.
-            //showing how we dynamically load the config file
+            // THIS LINE IS THE IMPORTANT BIT. YOU SHOULDN'T NEED TO EDIT IT
+            // the method signature should match the signature in src/index.js
             $.ajax("config.json").then(function (config) {
                 <%= toolName %>.main(
                     elem, imURL, dataToInitialiseToolWith, toolState, config);
