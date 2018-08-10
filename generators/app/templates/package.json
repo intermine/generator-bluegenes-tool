@@ -1,7 +1,7 @@
 {
   "name": "<%=toolNameHuman%>",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,10 +13,10 @@
   "dependencies": {
   },
   "devDependencies": {
-    "imjs": "^3.15.1",
-    "less": "^3.0.4",
+    "imjs": "^3.16",
+    "less": "^3.8.1",
     "less-plugin-clean-css": "^1.5.1",
-    "webpack": "^4.6.0",
-    "webpack-cli": "^2.0.15"
+    "webpack": "^4.16.5",
+    "webpack-cli": "^2.1.5"
   }
 }

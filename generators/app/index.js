@@ -15,7 +15,7 @@ module.exports = class extends Generator {
         type: 'input',
         name: 'toolNameComputer',
         message: 'What shall we name your project? This is a computer name with no spaces or special characters.',
-        default: 'bluegenes-toolnamehere'
+        default: 'bluegenesToolNameHere'
       },
       {
         type: 'input',
@@ -42,7 +42,8 @@ module.exports = class extends Generator {
         choices: [
           new inquirer.Separator(' = Report page = '),
           {
-            name: 'id'
+            name: 'id',
+            checked: true
           },
           new inquirer.Separator(' = List page = '),
           {
