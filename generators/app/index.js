@@ -102,7 +102,7 @@ module.exports = class extends Generator {
     this.templatePath('package.json'),
     this.destinationPath('package.json'), {
       author: this.props.author,
-      toolNameHuman: this.props.toolNameHuman,
+      toolNameComputer: this.props.toolNameComputer,
       licence: this.props.licence
     }
   );
@@ -130,7 +130,10 @@ module.exports = class extends Generator {
   );
 }
 install() {
-  this.installDependencies();
+  this.installDependencies({
+      npm: true,
+      bower: false,
+      yarn: false});
 }
 };
 
