@@ -1,5 +1,5 @@
 {
-  "accepts": [<%- accepts %>]  ,
+  "accepts": <%- accepts %>  ,
   "classes":
     <%- classes %>
   ,
