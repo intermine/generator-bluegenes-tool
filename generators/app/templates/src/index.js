@@ -5,6 +5,9 @@
 export function main (el, service, imEntity, state, config) {
     // sample code here to convert the provided intermine object (e.g. perhaps
     // an id) into an identifier the tool expects. e.g.:
+    // of course if your tool was built for intermine it might understand
+    // intermine ids already, but many others tools expect a gene symbol or
+    // protein accession, etc...
 
 /***************************************************************************
 /****** Example - you can delete this and replace with your own code *******
