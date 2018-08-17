@@ -1,6 +1,6 @@
 # generator-bluegenes-tool 
 
-> Generates a scaffold for BlueGenes tools
+Generates a scaffold for [BlueGenes](https://github.com/intermine/bluegenes) tools, InterMine's new UI
 
 ## Installation
 
