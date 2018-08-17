@@ -1,4 +1,5 @@
-# generator-bluegenes-tool [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# generator-bluegenes-tool 
+
 > Generates a scaffold for BlueGenes tools
 
 ## Installation
