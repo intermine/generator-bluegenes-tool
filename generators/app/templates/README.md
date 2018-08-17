@@ -17,13 +17,20 @@ All of the editable source files for css and js are in `src`. To bundle for prod
 Assuming [less](http://lesscss.org/) is installed globally:
 
 ```
-lessc src/style.css dist/style.css --clean-css
+npm run less
 ```
 
 #### JS
 
 Assuming [webpack](https://webpack.js.org/) is installed globally:
 
+##### Single build:
 ```
-npx webpack
+npm run build
+```
+
+##### Dev build that auto-rebuilds saved files:
+Note that you'll still have to serve and refresh the page yourself - we don't provide a built-in hot-reload server.
+```
+npm run dev
 ```
