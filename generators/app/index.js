@@ -19,10 +19,16 @@ module.exports = class extends Generator {
 
     const prompts = [{
         type: 'input',
-        name: 'toolNameComputer',
+        name: 'toolNameCljs',
         message: 'What shall we name your project? This is a computer name with no spaces or special characters.',
         default: 'bluegenesToolNameHere'
       },
+      {
+          type: 'input',
+          name: 'toolNameNpm',
+          message: 'NPM package name? This is a computer name with no capital letters or special characters apart from the - dash.',
+          default: 'bluegenes-tool-name-here'
+        },
       {
         type: 'input',
         name: 'toolNameHuman',
@@ -78,14 +84,14 @@ module.exports = class extends Generator {
       this.templatePath('demo.html'),
       this.destinationPath('demo.html'), {
         title: this.props.toolNameHuman,
-        toolName: this.props.toolNameComputer,
+        toolNameCljs: this.props.toolNameCljs,
         mineUrl: 'http://humanmine.org/human'
       }
     );
     this.fs.copyTpl(
       this.templatePath('webpack.config.js'),
       this.destinationPath('webpack.config.js'), {
-        toolName: this.props.toolNameComputer
+        toolNameCljs: this.props.toolNameCljs
       }
     );
 
@@ -94,6 +100,7 @@ module.exports = class extends Generator {
       this.destinationPath('config.json'), {
         accepts: JSON.stringify(this.props.accepts),
         toolNameHuman: this.props.toolNameHuman,
+        toolNameCljs: this.props.toolNameCljs,
         classes: stringToMultiValue(this.props.classes)
       }
     );
@@ -102,7 +109,7 @@ module.exports = class extends Generator {
     this.templatePath('package.json'),
     this.destinationPath('package.json'), {
       author: this.props.author,
-      toolNameComputer: this.props.toolNameComputer,
+      toolNameNpm: this.props.toolNameNpm,
       licence: this.props.licence
     }
   );
@@ -112,7 +119,8 @@ module.exports = class extends Generator {
     this.destinationPath('README.md'), {
       author: this.props.author,
       toolNameHuman: this.props.toolNameHuman,
-      toolNameComputer: this.props.toolNameComputer,
+      toolNameNpm: this.props.toolNameNpm,
+      toolNameCljs: this.props.toolNameCljs,
       licence: this.props.licence
     }
   );
@@ -120,7 +128,7 @@ module.exports = class extends Generator {
   this.fs.copyTpl(
     this.templatePath('src/style.less'),
     this.destinationPath('src/style.less'), {
-      toolNameComputer: this.props.toolNameComputer
+      toolNameCljs: this.props.toolNameCljs
     }
   );
 

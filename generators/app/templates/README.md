@@ -8,7 +8,7 @@ FIXME: fill out a description of your tool here! :)
 ### To set up locally for development
 
 1. Clone the repo
-2. `cd <%= toolNameComputer %>` and then `npm install` to install dependencies.
+2. `cd <%= toolNameNpm %>` and then `npm install` to install dependencies.
 
 All of the editable source files for css and js are in `src`. To bundle for prod, run the following commands:
 

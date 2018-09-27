@@ -15,5 +15,8 @@
     "css" : "dist/style.css",
     "js" : "dist/bundle.js"
   },
-  "toolName" : "<%= toolNameHuman %>"
+  "toolName" : {
+    "human" :"<%= toolNameHuman %>",
+    "cljs" :"<%= toolNameCljs %>"    
+  }
 }
