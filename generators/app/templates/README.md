@@ -29,8 +29,10 @@ Assuming [webpack](https://webpack.js.org/) is installed globally:
 npm run build
 ```
 
-##### Dev build that auto-rebuilds saved files:
-Note that you'll still have to serve and refresh the page yourself - we don't provide a built-in hot-reload server.
+##### Dev build that auto-rebuilds saved files & provides test server:
+Note that you'll still have to refresh the page yourself - we don't provide built-in hot-reloading.
 ```
 npm run dev
 ```
+
+This will serve your page at [http://localhost:3456](http://localhost:3456)
