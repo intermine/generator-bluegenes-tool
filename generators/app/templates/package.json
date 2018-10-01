@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "./node_modules/.bin/webpack",
     "server" : "node dev/serve.js",
-    "dev": "./node_modules/.bin/webpack --watch | node dev/serve.js",
+    "dev": "./node_modules/.bin/webpack --watch",
     "less": "lessc src/style.less dist/style.css --clean-css"
   },
   "keywords": [
