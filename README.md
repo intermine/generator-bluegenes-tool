@@ -8,13 +8,13 @@ First, install [Yeoman](http://yeoman.io) and generator-bluegenes-tool using [np
 
 ```bash
 npm install -g yo
-npm install -g generator-bluegenes-tool
+npm install -g @intermine/generator-bluegenes-tool
 ```
 
 Then generate your new project:
 
 ```bash
-yo bluegenes-tool
+yo @intermine/bluegenes-tool
 ```
 
 Feel free to [learn more about Yeoman](http://yeoman.io/).
