@@ -11,7 +11,16 @@ describe('generator-bluegenes-tool:app', () => {
   });
 
   it('creates files', () => {
-    assert.file(['src/index.js','src/style.less', 'config.json', 'demo.html',
-  'package.json','README.md', 'webpack.config.js', 'TODO.md']);
+    assert.file([
+      'src/index.js',
+      'src/style.less',
+      'dev/serve.js',
+      'config.json',
+      'demo.html',
+      'package.json',
+      'README.md',
+      'webpack.config.js',
+      'TODO.md'
+    ]);
   });
 });
