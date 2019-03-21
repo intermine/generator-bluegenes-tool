@@ -146,6 +146,8 @@ module.exports = class extends Generator {
       this.destinationPath('dev/serve.js'),
       {}
     );
+
+    this.fs.copyTpl(this.templatePath('TODO.md'), this.destinationPath('TODO.md'), {});
   }
 
   install() {
