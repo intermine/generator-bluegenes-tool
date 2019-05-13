@@ -164,6 +164,12 @@ module.exports = class extends Generator {
       {}
     );
 
+    this.fs.copyTpl(
+      this.templatePath('.gitignore'),
+      this.destinationPath('.gitignore'),
+      {}
+    );
+
     this.fs.copyTpl(this.templatePath('TODO.md'), this.destinationPath('TODO.md'), {});
   }
 

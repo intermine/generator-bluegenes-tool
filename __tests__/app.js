@@ -23,7 +23,8 @@ describe('generator-bluegenes-tool:app', () => {
       'TODO.md',
       '.eslintrc',
       '.eslintignore',
-      '.prettierrc'
+      '.prettierrc',
+      '.gitignore'
     ]);
   });
 });
