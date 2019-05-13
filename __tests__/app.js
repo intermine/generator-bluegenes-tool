@@ -20,7 +20,10 @@ describe('generator-bluegenes-tool:app', () => {
       'package.json',
       'README.md',
       'webpack.config.js',
-      'TODO.md'
+      'TODO.md',
+      '.eslintrc',
+      '.eslintignore',
+      '.prettierrc'
     ]);
   });
 });
