@@ -170,6 +170,12 @@ module.exports = class extends Generator {
       {}
     );
 
+    this.fs.copyTpl(
+      this.templatePath('tests/index.test.js'),
+      this.destinationPath('tests/index.test.js'),
+      {}
+    );
+
     this.fs.copyTpl(this.templatePath('TODO.md'), this.destinationPath('TODO.md'), {});
   }
 
