@@ -9,7 +9,5 @@ app.use(serveStatic('./', {
 }));
 app.listen(port);
 
-console.log("Listening on port " + port);
-console.log("Visit http://localhost:" +
-  port +
-  " to view your test application");
+console.log('Listening on port ' + port);
+console.log('Visit http://localhost:' + port + ' to view your test application');
