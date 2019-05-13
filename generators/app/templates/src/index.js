@@ -2,7 +2,10 @@
 // import SomePackage from "PackageName";
 
 // make sure to export main, with the signature
-export function main(/*el, service, imEntity, state, config*/) {
+function main(el, service, imEntity, state, config) {
+	if (!el || !service || !imEntity || !state || !config) {
+		throw new Error('Call main with correct signature');
+	}
 	// sample code here to convert the provided intermine object (e.g. perhaps
 	// an id) into an identifier the tool expects. e.g.:
 	// of course if your tool was built for intermine it might understand
@@ -22,3 +25,5 @@ export function main(/*el, service, imEntity, state, config*/) {
 
   */
 }
+
+module.exports = { main };
