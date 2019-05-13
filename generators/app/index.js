@@ -174,6 +174,13 @@ module.exports = class extends Generator {
   }
 
   install() {
+    this.spawnCommandSync('git', ['init']);
+    this.spawnCommandSync('git', ['add', '.']);
+    this.spawnCommandSync('git', [
+      'commit',
+      '-m',
+      'intial commit - scaffolded tool via CLI'
+    ]);
     this.installDependencies({
       npm: true,
       bower: false,
