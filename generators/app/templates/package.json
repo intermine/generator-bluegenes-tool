@@ -10,8 +10,9 @@
 		"server": "node dev/serve.js",
 		"dev": "./node_modules/.bin/webpack --watch",
 		"less": "lessc src/style.less dist/style.css --clean-css",
-		"lint": "./node_modules/.bin/eslint . -c .eslintrc --ext js,html",
-		"lint:fix": "./node_modules/.bin/eslint . -c .eslintrc --ext js,html --fix"
+		"lint": "./node_modules/.bin/eslint src/*.js -c .eslintrc --ext js",
+		"lint:fix":
+			"./node_modules/.bin/eslint src/*.js -c .eslintrc --ext js --fix"
 	},
 	"husky": {
 		"hooks": {
@@ -29,7 +30,6 @@
 	"devDependencies": {
 		"eslint": "^5.16.0",
 		"eslint-config-prettier": "^4.2.0",
-		"eslint-plugin-html": "^5.0.3",
 		"eslint-plugin-import": "^2.17.2",
 		"eslint-plugin-prettier": "^3.1.0",
 		"express": "^4.16.3",

@@ -9,29 +9,18 @@
     "prettier"
   ],
   "plugins": [
-    "html",
+    "import",
     "prettier"
   ],
   "parserOptions": {
     "sourceType": "module"
   },
 	"rules": {
-		"indent": [
-			"error",
-			"tab"
-		],
-		"linebreak-style": [
-			"error",
-			"unix"
-		],
-		"quotes": [
-			"error",
-			"single"
-		],
-		"semi": [
-			"error",
-			"always"
-    ],
-    "prettier/prettier": "error"
-	}
+    "indent": ["error", "tab"],
+		"linebreak-style": ["error", "unix"],
+		"quotes": ["error", "single"],
+		"semi": ["error", "always"],
+    "prettier/prettier": "error",
+    "comma-dangle": ["error", "never"]
+  }
 }
