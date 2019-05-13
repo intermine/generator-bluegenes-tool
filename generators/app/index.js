@@ -1,4 +1,3 @@
-'use strict';
 const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
@@ -147,6 +146,24 @@ module.exports = class extends Generator {
       {}
     );
 
+    this.fs.copyTpl(
+      this.templatePath('.eslintrc'),
+      this.destinationPath('.eslintrc'),
+      {}
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('.eslintignore'),
+      this.destinationPath('.eslintignore'),
+      {}
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('.prettierrc'),
+      this.destinationPath('.prettierrc'),
+      {}
+    );
+
     this.fs.copyTpl(this.templatePath('TODO.md'), this.destinationPath('TODO.md'), {});
   }
 
@@ -161,7 +178,7 @@ module.exports = class extends Generator {
 
 function stringToMultiValue(values) {
   // Split and trim values. Return pseudo-aray.
-  var vals = values.split(',');
+  let vals = values.split(',');
   // No more whitespace, please
   vals = vals.map(val => val.replace(/\s+/g, ''));
   return JSON.stringify(vals);
