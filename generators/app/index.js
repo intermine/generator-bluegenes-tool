@@ -22,7 +22,15 @@ module.exports = class extends Generator {
         name: 'toolNameCljs',
         message:
           'What shall we name your project? This is a computer name with no spaces or special characters.',
-        default: 'bluegenesToolNameHere'
+        default: 'bluegenesToolNameHere',
+        validate: input => {
+          input = input.trim();
+          if (input === '') return 'App name cannot be empty!';
+          if (input.search('-') !== -1 || input.search(' ') !== -1) {
+            return 'Oops! Project name cannot contain spaces or special characters!';
+          }
+          return true;
+        }
       },
       {
         type: 'input',
