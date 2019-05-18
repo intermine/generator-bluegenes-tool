@@ -83,6 +83,12 @@ module.exports = class extends Generator {
             name: 'tablerows'
           }
         ]
+      },
+      {
+        type: 'confirm',
+        message: 'Do you require React and babel setup for sugary stuff?',
+        name: 'reactReq',
+        default: false
       }
     ];
     return this.prompt(prompts).then(props => {
@@ -92,13 +98,18 @@ module.exports = class extends Generator {
   }
 
   writing() {
+    // Short way, this update this to `react-setup` if required
+    let reactSetupReq = '';
+    if (this.props.reactReq) reactSetupReq = '.react-setup';
+
     this.fs.copyTpl(this.templatePath('demo.html'), this.destinationPath('demo.html'), {
       title: this.props.toolNameHuman,
       toolNameCljs: this.props.toolNameCljs,
       mineUrl: 'http://www.humanmine.org/human'
     });
+
     this.fs.copyTpl(
-      this.templatePath('webpack.config.js'),
+      this.templatePath(`webpack.config${reactSetupReq}.js`),
       this.destinationPath('webpack.config.js'),
       {
         toolNameCljs: this.props.toolNameCljs
@@ -117,7 +128,7 @@ module.exports = class extends Generator {
     );
 
     this.fs.copyTpl(
-      this.templatePath('package.json'),
+      this.templatePath(`package${reactSetupReq}.json`),
       this.destinationPath('package.json'),
       {
         author: this.props.author,
@@ -143,7 +154,7 @@ module.exports = class extends Generator {
     );
 
     this.fs.copyTpl(
-      this.templatePath('src/index.js'),
+      this.templatePath(`src/index${reactSetupReq}.js`),
       this.destinationPath('src/index.js'),
       {}
     );
@@ -155,7 +166,7 @@ module.exports = class extends Generator {
     );
 
     this.fs.copyTpl(
-      this.templatePath('.eslintrc'),
+      this.templatePath(`.eslintrc${reactSetupReq}`),
       this.destinationPath('.eslintrc'),
       {}
     );
@@ -185,6 +196,18 @@ module.exports = class extends Generator {
     );
 
     this.fs.copyTpl(this.templatePath('TODO.md'), this.destinationPath('TODO.md'), {});
+
+    if (reactSetupReq) {
+      this.fs.copyTpl(
+        this.templatePath('src/RootContainer.react-setup.js'),
+        this.destinationPath('src/RootContainer.js')
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('.babelrc.react-setup'),
+        this.destinationPath('.babelrc')
+      );
+    }
   }
 
   install() {

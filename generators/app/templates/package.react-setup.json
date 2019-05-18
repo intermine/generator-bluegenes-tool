@@ -1,0 +1,54 @@
+{
+	"name": "@intermine/<%=toolNameNpm%>",
+	"version": "1.0.0",
+	"main": "src/index.js",
+	"description": "",
+	"homepage": "http://www.intermine.org",
+	"scripts": {
+		"test": "jest",
+		"build": "./node_modules/.bin/webpack",
+		"server": "node dev/serve.js",
+		"dev": "./node_modules/.bin/webpack --watch",
+		"less": "lessc src/style.less dist/style.css --clean-css",
+		"lint": "./node_modules/.bin/eslint src/*.js -c .eslintrc --ext js",
+		"lint:fix":
+			"./node_modules/.bin/eslint src/*.js -c .eslintrc --ext js --fix"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged",
+			"pre-push": "npm test"
+		}
+	},
+	"lint-staged": {
+		"*.js": ["./node_modules/.bin/eslint -c .eslintrc", "git add"]
+	},
+	"keywords": ["bluegenes-intermine-tool"],
+	"author": "<%= author %>",
+	"license": "<%= licence %>",
+	"dependencies": {
+		"react": "^16.8.6",
+		"react-dom": "^16.8.6"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.4.4",
+		"@babel/preset-env": "^7.4.4",
+		"@babel/preset-react": "^7.0.0",
+		"babel-loader": "^8.0.6",
+		"eslint": "^5.16.0",
+		"eslint-config-prettier": "^4.2.0",
+		"eslint-plugin-import": "^2.17.2",
+		"eslint-plugin-prettier": "^3.1.0",
+		"eslint-plugin-react": "^7.13.0",
+		"express": "^4.16.3",
+		"husky": "^2.2.0",
+		"imjs": "^3.16",
+		"jest": "^24.8.0",
+		"less": "^3.8.1",
+		"less-plugin-clean-css": "^1.5.1",
+		"lint-staged": "^8.1.6",
+		"prettier": "^1.17.0",
+		"webpack": "^4.16.5",
+		"webpack-cli": "^3.1.0"
+	}
+}

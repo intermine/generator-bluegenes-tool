@@ -1,5 +1,5 @@
 // add any imports if needed, or write your script directly in this file.
-// import SomePackage from "PackageName";
+// const SomePackage = require('PackageName');
 
 // make sure to export main, with the signature
 function main(el, service, imEntity, state, config) {
@@ -24,6 +24,11 @@ function main(el, service, imEntity, state, config) {
     });
 
   */
+	el.innerHTML = `
+		<div class="rootContainer">
+			<h1>Your Data Viz Here</h1>
+		</div>
+	`;
 }
 
-module.exports = { main };
+module.exports.default = main;
