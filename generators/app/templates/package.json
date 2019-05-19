@@ -10,6 +10,8 @@
 		"server": "node dev/serve.js",
 		"dev": "./node_modules/.bin/webpack --watch",
 		"less": "lessc src/style.less dist/style.css --clean-css",
+		"less:dev":
+			"./node_modules/less-watch-compiler/dist/less-watch-compiler.js src dist",
 		"lint": "./node_modules/.bin/eslint src/*.js -c .eslintrc --ext js",
 		"lint:fix":
 			"./node_modules/.bin/eslint src/*.js -c .eslintrc --ext js --fix"
@@ -37,6 +39,7 @@
 		"imjs": "^3.16",
 		"jest": "^24.8.0",
 		"less": "^3.8.1",
+		"less-watch-compiler": "^1.13.0",
 		"less-plugin-clean-css": "^1.5.1",
 		"lint-staged": "^8.1.6",
 		"prettier": "^1.17.0",
