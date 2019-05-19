@@ -2,7 +2,7 @@
 // const SomePackage = require('PackageName');
 
 // make sure to export main, with the signature
-function main(el, service, imEntity, state, config) {
+function main(el, service, imEntity, state = {}, config) {
 	if (!el || !service || !imEntity || !state || !config) {
 		throw new Error('Call main with correct signature');
 	}
