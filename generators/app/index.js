@@ -86,7 +86,8 @@ module.exports = class extends Generator {
       },
       {
         type: 'confirm',
-        message: 'Do you require React and babel setup for sugary stuff?',
+        message:
+          'Initialise with React and Babel? This will allow you to use React and ECMAscript 2015+ features.',
         name: 'reactReq',
         default: false
       }
