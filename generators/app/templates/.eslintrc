@@ -24,5 +24,10 @@
 		"semi": ["error", "always"],
     "prettier/prettier": "error",
     "comma-dangle": ["error", "never"]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }
