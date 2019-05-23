@@ -31,4 +31,4 @@ function main(el, service, imEntity, state = {}, config) {
 	`;
 }
 
-module.exports = main;
+module.exports = { main };

@@ -1,4 +1,4 @@
-const main = require('../src').default;
+const main = require('../src').main;
 
 // Example
 describe('main', () => {

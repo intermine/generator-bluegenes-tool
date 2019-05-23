@@ -49,7 +49,7 @@
     	// THIS LINE IS THE IMPORTANT BIT. YOU SHOULDN'T NEED TO EDIT IT
     	// the method signature should match the signature in src/index.js
     	$.ajax('config.json').then(function(config) {
-    		<%= toolNameCljs %>(
+    		<%= toolNameCljs %>.main(
     			elem,
           imURL,
           dataToInitialiseToolWith,

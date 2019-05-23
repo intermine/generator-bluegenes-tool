@@ -17,4 +17,4 @@ function main(el, service, imEntity, state = {}, config) {
 	);
 }
 
-module.exports = main;
+export { main };
