@@ -19,7 +19,13 @@
 
   <!-- These are the styles YOU implement in src/style.less -->
   <link rel="stylesheet" href="dist/style.css">
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+	<script>
+		var socket = io("http://localhost:3457");
+    socket.on('reload', function(){
+			document.location.reload();
+    });
+	</script>
 </head>
 
 <body>
