@@ -17,4 +17,4 @@ before_install:
   - bash setup-bluegenes.sh
 
 script:
-  - ./ci/travis.sh
+  - bash /ci/travis.sh

@@ -11,16 +11,10 @@ echo "#--- cloning bluegenes"
 git clone --single-branch --branch 'dev' --depth 1 https://github.com/intermine/bluegenes.git bluegenes
 
 cd bluegenes
+npm install
 
 echo "#--- starting bluegenes server"
-lein run &
+lein prod
 # install cypress dependencies
 sudo apt-get install xvfb libgtk2.0-0 libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 -y
 # setup dependencies
-npm install
-
-echo "#--- building css"
-lein less once
-
-echo "#--- building cljs into js, prod minified"
-lein cljsbuild once min
