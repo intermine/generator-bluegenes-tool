@@ -4,7 +4,7 @@ node_js:
   - v8
 before_install:
   # set up intermine
-  - git clone https://github.com:intermine/testmine-ci.git
+  - git clone https://github.com/intermine/testmine-ci.git
   - bash testmine-ci/init-testmine.sh
   # set up bluegenes
   - bash setup-bluegenes.sh
