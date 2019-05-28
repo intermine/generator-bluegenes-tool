@@ -15,12 +15,17 @@ describe('generator-bluegenes-tool:app', () => {
       'src/index.js',
       'src/style.less',
       'dev/serve.js',
+      'tests/index.test.js',
       'config.json',
       'demo.html',
       'package.json',
       'README.md',
       'webpack.config.js',
-      'TODO.md'
+      'TODO.md',
+      '.eslintrc',
+      '.eslintignore',
+      '.prettierrc',
+      '.gitignore'
     ]);
   });
 });

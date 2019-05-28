@@ -1,4 +1,3 @@
-'use strict';
 const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
@@ -23,7 +22,15 @@ module.exports = class extends Generator {
         name: 'toolNameCljs',
         message:
           'What shall we name your project? This is a computer name with no spaces or special characters.',
-        default: 'bluegenesToolNameHere'
+        default: 'bluegenesToolNameHere',
+        validate: input => {
+          input = input.trim();
+          if (input === '') return 'App name cannot be empty!';
+          if (input.search('-') !== -1 || input.search(' ') !== -1) {
+            return 'Oops! Project name cannot contain spaces or special characters!';
+          }
+          return true;
+        }
       },
       {
         type: 'input',
@@ -76,6 +83,13 @@ module.exports = class extends Generator {
             name: 'tablerows'
           }
         ]
+      },
+      {
+        type: 'confirm',
+        message:
+          'Initialise with React and Babel? This will allow you to use React and ECMAscript 2015+ features.',
+        name: 'reactReq',
+        default: false
       }
     ];
     return this.prompt(prompts).then(props => {
@@ -85,13 +99,18 @@ module.exports = class extends Generator {
   }
 
   writing() {
+    // Short way, this update this to `react-setup` if required
+    let reactSetupReq = '';
+    if (this.props.reactReq) reactSetupReq = '.react-setup';
+
     this.fs.copyTpl(this.templatePath('demo.html'), this.destinationPath('demo.html'), {
       title: this.props.toolNameHuman,
       toolNameCljs: this.props.toolNameCljs,
       mineUrl: 'http://www.humanmine.org/human'
     });
+
     this.fs.copyTpl(
-      this.templatePath('webpack.config.js'),
+      this.templatePath(`webpack.config${reactSetupReq}.js`),
       this.destinationPath('webpack.config.js'),
       {
         toolNameCljs: this.props.toolNameCljs
@@ -110,7 +129,7 @@ module.exports = class extends Generator {
     );
 
     this.fs.copyTpl(
-      this.templatePath('package.json'),
+      this.templatePath(`package${reactSetupReq}.json`),
       this.destinationPath('package.json'),
       {
         author: this.props.author,
@@ -136,7 +155,7 @@ module.exports = class extends Generator {
     );
 
     this.fs.copyTpl(
-      this.templatePath('src/index.js'),
+      this.templatePath(`src/index${reactSetupReq}.js`),
       this.destinationPath('src/index.js'),
       {}
     );
@@ -147,10 +166,59 @@ module.exports = class extends Generator {
       {}
     );
 
+    this.fs.copyTpl(
+      this.templatePath(`.eslintrc${reactSetupReq}`),
+      this.destinationPath('.eslintrc'),
+      {}
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('.eslintignore'),
+      this.destinationPath('.eslintignore'),
+      {}
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('.prettierrc'),
+      this.destinationPath('.prettierrc'),
+      {}
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('.gitignore'),
+      this.destinationPath('.gitignore'),
+      {}
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('tests/index.test.js'),
+      this.destinationPath('tests/index.test.js'),
+      {}
+    );
+
     this.fs.copyTpl(this.templatePath('TODO.md'), this.destinationPath('TODO.md'), {});
+
+    if (reactSetupReq) {
+      this.fs.copyTpl(
+        this.templatePath('src/RootContainer.react-setup.js'),
+        this.destinationPath('src/RootContainer.js')
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('.babelrc.react-setup'),
+        this.destinationPath('.babelrc')
+      );
+    }
   }
 
   install() {
+    this.spawnCommandSync('git', ['init']);
+    this.spawnCommandSync('git', ['add', '.']);
+    this.spawnCommandSync('git', [
+      'commit',
+      '-m',
+      'intial commit - scaffolded tool via CLI'
+    ]);
     this.installDependencies({
       npm: true,
       bower: false,
@@ -161,7 +229,7 @@ module.exports = class extends Generator {
 
 function stringToMultiValue(values) {
   // Split and trim values. Return pseudo-aray.
-  var vals = values.split(',');
+  let vals = values.split(',');
   // No more whitespace, please
   vals = vals.map(val => val.replace(/\s+/g, ''));
   return JSON.stringify(vals);
