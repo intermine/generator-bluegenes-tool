@@ -1,4 +1,11 @@
 language: node_js
+env:
+  global:
+  - TESTMODEL_URL=http://localhost:8080/intermine-demo
+  - TESTMODEL_PATH=intermine-demo
+sudo: true
+jdk:
+  - openjdk8
 node_js:
   - v10
   - v8
