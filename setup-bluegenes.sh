@@ -8,7 +8,8 @@ chmod +x /tmp/lein
 export PATH=$PATH:/tmp/lein
 
 echo "#--- cloning bluegenes"
-git clone git@github.com:intermine/bluegenes.git
+git clone --single-branch --branch 'dev' --depth 1 git@github.com:intermine/bluegenes.git bluegenes
+
 cd bluegenes
 
 echo "#--- starting bluegenes server"
