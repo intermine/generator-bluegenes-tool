@@ -1,4 +1,7 @@
+#tell bluegenes which intermine to query
 export BLUEGENES_DEFAULT_SERVICE_ROOT=$TESTMODEL_URL
+
+#download and install lein
 wget https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein -O /tmp/lein
 chmod +x /tmp/lein
 export PATH=$PATH:/tmp/lein
