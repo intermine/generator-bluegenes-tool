@@ -2,5 +2,12 @@ language: node_js
 node_js:
   - v10
   - v8
-  - v6
+before_install:
+  # set up intermine
+  - git clone git@github.com:intermine/testmine-ci.git
+  - bash testmine-ci/init-testmine.sh
+  # set up bluegenes
+  - bash setup-bluegenes.sh
 
+script:
+  - ./ci/travis.sh
