@@ -6,7 +6,10 @@ echo "#--- installing lein"
 wget https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein -O /tmp/lein
 chmod +x /tmp/lein
 export PATH=$PATH:/tmp/lein
-#start server
+
+echo "#--- cloning bluegenes"
+git clone git@github.com:intermine/bluegenes.git
+cd bluegenes
 
 echo "#--- starting bluegenes server"
 lein run &
