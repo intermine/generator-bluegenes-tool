@@ -15,6 +15,9 @@ before_install:
   - bash testmine-ci/init-testmine.sh
   # set up bluegenes
   - bash setup-bluegenes.sh
+  # install cypress dependencies
+  - sudo apt-get install xvfb libgtk2.0-0 libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 -y
+
 
 script:
   - bash /ci/travis.sh
