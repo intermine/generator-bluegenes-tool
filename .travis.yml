@@ -15,6 +15,7 @@ before_install:
   - bash testmine-ci/init-testmine.sh
   # client dependencies
   - npm install
+  - npm install -g yo
   # set up bluegenes
   - bash setup-bluegenes.sh
   # install cypress dependencies

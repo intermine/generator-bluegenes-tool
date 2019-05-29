@@ -1,4 +1,4 @@
-npm install
+
 
 # Generate a new tool.
 # ------------
@@ -8,6 +8,7 @@ npm install
 # show this on.
 
 echo "#--- generating sample tool"
+npm link # sets this repo up as a global dependency
 yes "Employee" | yo @intermine/bluegenes-tool
 
 npm run build
