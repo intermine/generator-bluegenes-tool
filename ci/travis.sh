@@ -1,3 +1,5 @@
+npm install
+
 # Generate a new tool.
 # ------------
 # Pipes the word "Employee" to all of the yeoman responses
@@ -7,6 +9,7 @@
 
 echo "#--- generating sample tool"
 yes "Employee" | yo @intermine/bluegenes-tool
+
 npm run build
 
 echo "#--- copy tool to bluegenes tool dir"
