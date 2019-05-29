@@ -1,15 +1,9 @@
-
-
-# Generate a new tool.
-# ------------
-# Pipes the word "Employee" to all of the yeoman responses
-# ensuring we have some default input for the tool
-# as well as a valid object class for which pages to
-# show this on.
-
 echo "#--- generating sample tool"
 npm link # sets this repo up as a global dependency
-yes "Employee" | yo @intermine/bluegenes-tool
+# print a bunch of dummy responses to the generator.
+# We're using the test model which is non-biological
+# and testing on the Employee report page.
+printf 'Employee\nEmployee\nEmployee\nEmployee\n\n\nEmployee\n\n\n\n' | yo @intermine/bluegenes-tool
 
 npm run build
 
