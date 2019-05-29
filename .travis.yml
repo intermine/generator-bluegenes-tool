@@ -13,6 +13,8 @@ before_install:
   # set up intermine
   - git clone https://github.com/intermine/testmine-ci.git
   - bash testmine-ci/init-testmine.sh
+  # client dependencies
+  - npm install
   # set up bluegenes
   - bash setup-bluegenes.sh
   # install cypress dependencies
