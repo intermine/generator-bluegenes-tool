@@ -20,5 +20,4 @@ cd tools
 mv ../../ci/package.json package.json -f
 
 echo "#--- starting bluegenes server"
-lein prod
-# setup dependencies
+lein prod &
