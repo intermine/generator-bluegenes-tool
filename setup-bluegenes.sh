@@ -11,9 +11,11 @@ export PATH=$PATH:/tmp/lein
 echo "#--- cloning bluegenes"
 git clone --single-branch --branch 'dev' --depth 1 https://github.com/intermine/bluegenes.git bluegenes
 
+echo "#--- installing node dependencies"
 cd bluegenes
 npm install
 
+echo "#--- set up tools folder"
 cd tools
 mv ../../ci/package.json package.json -f
 
