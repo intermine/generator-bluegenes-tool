@@ -20,4 +20,5 @@ before_install:
 
 
 script:
-  - bash /ci/travis.sh
+  - pwd
+  - bash ci/travis.sh
