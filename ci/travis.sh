@@ -14,7 +14,7 @@ echo "#---- run yeoman generator"
 # print a bunch of dummy responses to the generator.
 # We're using the test model which is non-biological
 # and testing on the Employee report page.
-while true; do echo "Employee\n"; sleep 0.1s; done | yo @intermine/bluegenes-tool
+while true; do echo "Employee\n"; sleep 0.2s; done | yo @intermine/bluegenes-tool
 
 echo "#---- build tool"
 npm run build
