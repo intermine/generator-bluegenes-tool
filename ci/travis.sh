@@ -22,7 +22,7 @@ npm run build
 
 echo "#---- copy tool to bluegenes tool dir"
 cd ..
-TOOL_PATH = generator-bluegenes-tool/bluegenes/tools/node_modules/@intermine/Employee
+TOOL_PATH=generator-bluegenes-tool/bluegenes/tools/node_modules/@intermine/Employee
 mkdir TOOL_PATH
 mv sample_tool TOOL_PATH
 
