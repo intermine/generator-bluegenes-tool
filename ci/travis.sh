@@ -27,4 +27,5 @@ mkdir TOOL_PATH
 mv sample_tool TOOL_PATH
 
 echo "#--- Run UI test"
+cd generator-bluegenes-tool
 npx cypress run
