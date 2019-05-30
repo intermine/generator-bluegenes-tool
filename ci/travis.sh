@@ -3,6 +3,7 @@ npm link # sets this repo up as a global dependency
 
 echo "#---- new folder for sample tool"
 
+cd ..
 mkdir sample_tool
 cd sample_tool
 
@@ -21,7 +22,7 @@ npm run build
 
 echo "#---- copy tool to bluegenes tool dir"
 cd ..
-mv sample_tool ../bluegenes/tools/node_modules/@intermine/Employee
+mv sample_tool ../generator-bluegenes-tool/bluegenes/tools/node_modules/@intermine/Employee
 
 echo "#--- Run UI test"
 npx cypress run
