@@ -31,6 +31,7 @@
 	"license": "<%= licence %>",
 	"dependencies": {},
 	"devDependencies": {
+		"@types/jest": "^24.0.13",
 		"chokidar": "^3.0.0",
 		"eslint": "^5.16.0",
 		"eslint-config-prettier": "^4.2.0",
@@ -41,8 +42,8 @@
 		"imjs": "^3.16",
 		"jest": "^24.8.0",
 		"less": "^3.8.1",
-		"less-watch-compiler": "^1.13.0",
 		"less-plugin-clean-css": "^1.5.1",
+		"less-watch-compiler": "^1.13.0",
 		"lint-staged": "^8.1.6",
 		"prettier": "^1.17.0",
 		"socket.io": "^2.2.0",
