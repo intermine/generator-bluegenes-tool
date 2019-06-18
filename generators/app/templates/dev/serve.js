@@ -12,7 +12,7 @@ watcher.on('all', (eventName, path) => {
 	if (eventName === 'addDir') {
 		console.log('Building files...');
 		spawnCommand('npm', ['run', 'less']);
-		spawnCommand('npm', ['run', 'build']);
+		spawnCommand('npm', ['run', 'webpack:dev:build']);
 		console.log('Files built!');
 	} else if (eventName === 'add') return;
 	else if (eventName === 'change') {
@@ -20,7 +20,7 @@ watcher.on('all', (eventName, path) => {
 		if (path.search('.less') !== -1) {
 			spawnCommand('npm', ['run', 'less']);
 		} else {
-			spawnCommand('npm', ['run', 'build']);
+			spawnCommand('npm', ['run', 'webpack:dev:build']);
 		}
 		io.emit('reload');
 		console.log('Reloaded!');

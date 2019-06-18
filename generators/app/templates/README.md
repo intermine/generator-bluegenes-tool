@@ -1,6 +1,7 @@
 #  <%= toolNameHuman %>
 
-FIXME: fill out a description of your tool here! :)
+<%= toolNameHuman %> is a tool made for [BlueGenes](http://bluegenes.apps.intermine.org) following BlueGenes Tool API.
+Add more description of your tool here! :)
 
 ## Licence
 <%= licence %>
@@ -39,15 +40,9 @@ npm run build
 - More pre-configured rules from __eslint:recommended__ you must follow to not get errors [here](https://eslint.org/docs/rules/).
 
 ##### Developing:
-Run each of these commands in separate terminals:
+To serve your code at [localhost:3456](http://localhost:3456) and rebuild it every time it changes, run:
 
-To rebuild your js every time you save:
 
 ```bash
 npm run dev
-```
-
-To serve your page at [http://localhost:3456](http://localhost:3456):
-```bash
-npm run server
 ```
