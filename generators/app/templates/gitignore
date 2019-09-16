@@ -1,0 +1,2 @@
+# NPM publish messes with `.gitignore`, therefore we have to call this file `gitignore`.
+node_modules/
