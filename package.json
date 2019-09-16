@@ -1,6 +1,6 @@
 {
 	"name": "@intermine/generator-bluegenes-tool",
-	"version": "1.3.0",
+	"version": "1.3.1",
 	"description": "Generates a scaffold for BlueGenes tools",
 	"homepage": "http://intermine.org",
 	"author": {
