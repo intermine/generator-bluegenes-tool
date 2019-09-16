@@ -51,7 +51,15 @@
     			// needed for the demo.
     			value: 1276963
     		},
-    		toolState = {}; //to be confirmed how we use this.
+    		toolState = {}, //to be confirmed how we use this.
+        navigate = function(type, data, mine) {
+          // Helpful console message when calling navigate function.
+          var someMine = mine ? "on ".concat(mine) : null;
+          var msg = ["Navigating to", type, someMine, "with data:"]
+            .filter(function(e) { return e }) // remove falsy elements
+            .join(" ");
+          console.log(msg, data);
+        };
     	// THIS LINE IS THE IMPORTANT BIT. YOU SHOULDN'T NEED TO EDIT IT
     	// the method signature should match the signature in src/index.js
     	$.ajax('config.json').then(function(config) {
@@ -61,6 +69,7 @@
           dataToInitialiseToolWith,
           toolState,
           config,
+          navigate
         );
     	});
     };
