@@ -106,7 +106,8 @@ module.exports = class extends Generator {
     this.fs.copyTpl(this.templatePath('demo.html'), this.destinationPath('demo.html'), {
       title: this.props.toolNameHuman,
       toolNameCljs: this.props.toolNameCljs,
-      mineUrl: 'http://www.humanmine.org/human'
+      mineUrl: 'http://www.humanmine.org/human',
+      reactReq: this.props.reactReq
     });
 
     this.fs.copyTpl(
