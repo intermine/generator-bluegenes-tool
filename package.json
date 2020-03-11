@@ -3,6 +3,10 @@
   "version": "1.3.2",
   "description": "Generates a scaffold for BlueGenes tools",
   "homepage": "http://intermine.org",
+  "repository": {
+  "type": "git",
+  "url": "http://github.com/intermine/generator-bluegenes-tool" 
+  },
   "author": {
     "name": "Yo Yehudi",
     "email": "yo@intermine.org",
