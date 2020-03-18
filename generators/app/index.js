@@ -110,8 +110,21 @@ module.exports = class extends Generator {
   writing() {
     // Short way, this update this to `react-setup` if required
     let reactSetupReq = '';
+    let CSSLoader = '';
+    let CSSLoaderDependency = '';
     if (this.props.reactReq) {
       reactSetupReq = '.react-setup';
+    }
+    if (this.props.cssLoaderReq) {
+      /* eslint-disable */
+      CSSLoader = `{
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"]
+      },`;
+      /* eslint-enable */
+      CSSLoaderDependency = `,
+        "style-loader": "^1.1.3",
+        "css-loader": "^3.4.2"`;
     }
 
     this.fs.copyTpl(this.templatePath('demo.html'), this.destinationPath('demo.html'), {
@@ -125,7 +138,8 @@ module.exports = class extends Generator {
       this.templatePath(`webpack.config${reactSetupReq}.js`),
       this.destinationPath('webpack.config.js'),
       {
-        toolNameCljs: this.props.toolNameCljs
+        toolNameCljs: this.props.toolNameCljs,
+        CSSLoader
       }
     );
 
@@ -146,7 +160,8 @@ module.exports = class extends Generator {
       {
         author: this.props.author,
         toolNameNpm: this.props.toolNameNpm,
-        licence: this.props.licence
+        licence: this.props.licence,
+        CSSLoaderDependency
       }
     );
 
