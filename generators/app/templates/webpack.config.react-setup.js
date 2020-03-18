@@ -15,6 +15,7 @@ module.exports = {
 	},
 	module: {
     rules: [
+      <%- CSSLoader %>
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
