@@ -115,7 +115,7 @@ module.exports = class extends Generator {
     if (this.props.reactReq) {
       reactSetupReq = '.react-setup';
     }
-    if (this.props.cssLoaderReq) {
+    if (this.props.CSSLoaderReq) {
       /* eslint-disable */
       CSSLoader = `{
         test: /\.css$/i,
@@ -123,8 +123,8 @@ module.exports = class extends Generator {
       },`;
       /* eslint-enable */
       CSSLoaderDependency = `,
-        "style-loader": "^1.1.3",
-        "css-loader": "^3.4.2"`;
+      "style-loader": "^1.1.3",
+      "css-loader": "^3.4.2"`;
     }
 
     this.fs.copyTpl(this.templatePath('demo.html'), this.destinationPath('demo.html'), {
