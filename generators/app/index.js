@@ -25,7 +25,9 @@ module.exports = class extends Generator {
         default: 'bluegenesToolNameHere',
         validate: input => {
           input = input.trim();
-          if (input === '') return 'App name cannot be empty!';
+          if (input === '') {
+            return 'App name cannot be empty!';
+          }
           if (input.search('-') !== -1 || input.search(' ') !== -1) {
             return 'Oops! Project name cannot contain spaces or special characters!';
           }
@@ -90,6 +92,13 @@ module.exports = class extends Generator {
           'Initialise with React and Babel? This will allow you to use React and ECMAscript 2015+ features.',
         name: 'reactReq',
         default: false
+      },
+      {
+        type: 'confirm',
+        message:
+          'Would you like to add CSS-loader to your tool? It would allow you to import css files along with less in your components',
+        name: 'CSSLoaderReq',
+        default: false
       }
     ];
     return this.prompt(prompts).then(props => {
@@ -101,7 +110,9 @@ module.exports = class extends Generator {
   writing() {
     // Short way, this update this to `react-setup` if required
     let reactSetupReq = '';
-    if (this.props.reactReq) reactSetupReq = '.react-setup';
+    if (this.props.reactReq) {
+      reactSetupReq = '.react-setup';
+    }
 
     this.fs.copyTpl(this.templatePath('demo.html'), this.destinationPath('demo.html'), {
       title: this.props.toolNameHuman,
