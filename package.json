@@ -38,7 +38,10 @@
     "yosay": "^2.0.1"
   },
   "jest": {
-    "testEnvironment": "node"
+    "roots": [
+      "__tests__/"
+    ],
+    "testURL": "http://localhost/"
   },
   "scripts": {
     "pretest": "eslint .",
