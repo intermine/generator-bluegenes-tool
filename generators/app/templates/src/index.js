@@ -17,9 +17,11 @@ function main(el, service, imEntity, state, config) {
 
     // protVista expects an accession, so convert intermine id to accession
 
-    var columnToConvert = config.columnMapping[imEntity.class][imEntity.format];
+    var entity = imEntity.Protein;
+
+    var columnToConvert = config.columnMapping[entity.class][entity.format];
     var accession = new imjs.Service(service)
-        .findById(imEntity.class, imEntity.value)
+        .findById(entity.class, entity.value)
         .then(function(response) {
         //put some code here to initialise your tool.
     });
