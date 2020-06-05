@@ -82,7 +82,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/intermine/generator-bluegenes-tool",
+    "url": "https://github.com/intermine/generator-bluegenes-tool"
   },
   "license": "MIT",
   "husky": {
