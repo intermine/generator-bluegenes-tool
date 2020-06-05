@@ -80,7 +80,10 @@
       "prettier"
     ]
   },
-  "repository": "intermine/generator-bluegenes-tool",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/intermine/generator-bluegenes-tool",
+  },
   "license": "MIT",
   "husky": {
     "hooks": {
