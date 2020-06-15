@@ -18,5 +18,6 @@
   "toolName" : {
     "human" :"<%= toolNameHuman %>",
     "cljs" :"<%= toolNameCljs %>"    
-  }
+  },
+  "version": 2
 }
