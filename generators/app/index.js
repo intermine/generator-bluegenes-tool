@@ -3,6 +3,7 @@ const chalk = require('chalk');
 const yosay = require('yosay');
 const inquirer = require('inquirer');
 
+const idList = [1215734, 1161508, 1020855];
 module.exports = class extends Generator {
   initializing() {
     this.composeWith(require.resolve('generator-license'), {
@@ -131,7 +132,10 @@ module.exports = class extends Generator {
       title: this.props.toolNameHuman,
       toolNameCljs: this.props.toolNameCljs,
       mineUrl: 'http://www.humanmine.org/human',
-      reactReq: this.props.reactReq
+      reactReq: this.props.reactReq,
+      classes: getFirstElement(this.props.classes),
+      format: this.props.accepts[0],
+      value: getValue(this.props.accepts[0])
     });
 
     this.fs.copyTpl(
@@ -260,4 +264,14 @@ function stringToMultiValue(values) {
   // No more whitespace, please
   vals = vals.map(val => val.replace(/\s+/g, ''));
   return JSON.stringify(vals);
+}
+
+function getFirstElement(value) {
+  let vals = value.split(',');
+  return vals[0];
+}
+
+function getValue(val) {
+  if(val == 'id') return idList[0];
+  return JSON.stringify(idList);
 }
