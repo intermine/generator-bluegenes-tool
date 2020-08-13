@@ -272,6 +272,6 @@ function getFirstElement(value) {
 }
 
 function getValue(val) {
-  if(val == 'id') return idList[0];
+  if (val === 'id') return idList[0];
   return JSON.stringify(idList);
 }
