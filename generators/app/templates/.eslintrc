@@ -29,5 +29,8 @@
     "react": {
       "version": "detect"
     }
+  },
+  "globals": {
+    "imjs": true
   }
 }

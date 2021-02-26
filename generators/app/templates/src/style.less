@@ -8,10 +8,17 @@
   // to build your css, run `lessc src/style.css dist/style.css --clean-css`
   // in your terminal
 
+  // Tips to ensure your tool works well in BlueGenes:
+  // - Pretend that the browser window your tool runs in is the container provided by BlueGenes
+  // - Use all the width you're given, but only the height you need (hardcoding to a specific height is fine)
+  // - Avoid vw/vh values as these will work unexpectedly when your tool is used in BlueGenes
+  // - Do not have a header for your tool; BlueGenes provides one above the container
+  // - BlueGenes will ensure your tool is scrollable if it's larger than the container
+  // - The space given by BlueGenes is precious; make your visualization occupy most of it and avoid having settings that occupy a large part of it
+  // - Remember that loaders should only apply to your container, not fade out the whole window
 
   // this is just an example class for root div element, you may modify or delete it as per your usecase
-	.rootContainer {
-		border: 1px solid black;
-		padding: 20px;
-	}
+  .rootContainer {
+    padding: 10px;
+  }
 }

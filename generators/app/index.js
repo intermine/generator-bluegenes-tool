@@ -74,15 +74,6 @@ module.exports = class extends Generator {
           new inquirer.Separator(' = List page = '),
           {
             name: 'ids'
-          },
-          {
-            name: 'rows'
-          },
-          {
-            name: 'records'
-          },
-          {
-            name: 'tablerows'
           }
         ]
       },
@@ -130,7 +121,7 @@ module.exports = class extends Generator {
     this.fs.copyTpl(this.templatePath('demo.html'), this.destinationPath('demo.html'), {
       title: this.props.toolNameHuman,
       toolNameCljs: this.props.toolNameCljs,
-      mineUrl: 'http://www.humanmine.org/human',
+      mineUrl: 'https://www.humanmine.org/humanmine',
       reactReq: this.props.reactReq
     });
 
