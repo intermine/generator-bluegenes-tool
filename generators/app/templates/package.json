@@ -4,6 +4,11 @@
 	"main": "src/index.js",
 	"description": "",
 	"homepage": "http://www.intermine.org",
+  "files": [
+    "/dist",
+    "/config.json",
+    "/preview.png"
+  ],
 	"scripts": {
 		"test": "jest",
 		"build": "./node_modules/.bin/webpack",
@@ -14,8 +19,8 @@
 		"less:dev":
 			"./node_modules/less-watch-compiler/dist/less-watch-compiler.js src dist",
 		"lint": "./node_modules/.bin/eslint src/*.js -c .eslintrc --ext js",
-		"lint:fix":
-			"./node_modules/.bin/eslint src/*.js -c .eslintrc --ext js --fix"
+		"lint:fix": "./node_modules/.bin/eslint src/*.js -c .eslintrc --ext js --fix",
+    "prepack": "npm run build && npm run less"
 	},
 	"husky": {
 		"hooks": {
