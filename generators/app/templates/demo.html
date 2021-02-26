@@ -18,10 +18,6 @@
   <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
   <% } %>
 
-  <!-- These are styles that will be inherited from bluegenes -->
-  <link rel="stylesheet" href="css/site.css">
-
-
   <!-- These are the styles YOU implement in src/style.less -->
   <link rel="stylesheet" href="dist/style.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
@@ -37,28 +33,19 @@
   <div class="<%= toolNameCljs %>" id='yourDiv' />
   <script>
     window.onload = function() {
-	    //The element to attach the viewer to. Must be an existing DOM element
+    	// InterMine service, including URL and optionally token.
+      var imService = { root: '<%= mineUrl %>' };
+	    // The element to attach the viewer to. Must be an existing DOM element.
     	var elem = document.getElementById('yourDiv'),
-    		//InterMine service, including URL and token.
-    		imURL = {
-    			root: '<%= mineUrl %>',
-    			//could include token here too if we had one
-    		},
-    		//this is an example of data that could be passed to this tool be BlueGenes
-    		//in reality (outside the demo) this would be dynamic and not hard-coded
-    		// to an ID.
-    		dataToInitialiseToolWith = {
-          Protein: {
-            class: 'Protein',
-            format: 'id',
-            // right now this id corresponds to Human GATA1
-            // this is a bit fragile since IDs change with every build
-            // but we don't want to make the code more complicated than
-            // needed for the demo.
-            value: 1276963
-          }
-    		},
-    		toolState = {}, //to be confirmed how we use this.
+        // We use imjs to acquire the example data for initializing the tool,
+        // as hardcoding object IDs would require them to be updated on every
+        // database rebuild in the respective Intermine.
+        getDataForTool = function() {
+          var service = new imjs.Service(imService);
+          // You can change this to a different object type and identifier.
+          return service.lookup('Gene', 'GATA1');
+        },
+    		toolState = {}, // To be confirmed how we use this.
         navigate = function(type, data, mine) {
           // Helpful console message when calling navigate function.
           var someMine = mine ? "on ".concat(mine) : null;
@@ -67,17 +54,30 @@
             .join(" ");
           console.log(msg, data);
         };
-    	// THIS LINE IS THE IMPORTANT BIT. YOU SHOULDN'T NEED TO EDIT IT
-    	// the method signature should match the signature in src/index.js
+    	// The method signature should match the signature in src/index.js
     	$.ajax('config.json').then(function(config) {
-    		<%= toolNameCljs %>.main(
-    			elem,
-          imURL,
-          dataToInitialiseToolWith,
-          toolState,
-          config,
-          navigate
-        );
+        getDataForTool().then(function(response) {
+          if (!response.length) throw new Error('Failed to initialize tool. No results when fetching data for initializing tool with. Please check demo.html:getDataForTool')
+
+          var obj = response[0];
+          // This represents an example of what would be passed to this tool.
+          var dataForTool = {
+            [obj.class]: {
+              class: obj.class,
+              format: 'id',
+              value: obj.objectId
+            }
+          };
+
+          <%= toolNameCljs %>.main(
+            elem,
+            imService,
+            dataForTool,
+            toolState,
+            config,
+            navigate
+          );
+        });
     	});
     };
   </script>
