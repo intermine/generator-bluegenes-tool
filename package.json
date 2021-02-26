@@ -45,7 +45,6 @@
   },
   "scripts": {
     "pretest": "eslint .",
-    "precommit": "lint-staged",
     "test": "jest __tests__"
   },
   "lint-staged": {
@@ -84,10 +83,5 @@
     "type": "git",
     "url": "https://github.com/intermine/generator-bluegenes-tool"
   },
-  "license": "MIT",
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  }
+  "license": "MIT"
 }
