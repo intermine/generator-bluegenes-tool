@@ -6,6 +6,7 @@ produced the basic files needed for your tool. You'll still need to handle the i
 ## Todos before this is release-ready:
 
 - [] edit [src/index.js](src/index.js) and add code to initialise your tool
+- [] add any css styles to [src/style.less](src/style.less)
 - [] update demo.html to show a demo of your tool
 - [] add `preview.png` to the root directory of this repo. This image will be used to preview your tool.
 - [] update your tool's description in [README.md](README.md)
@@ -13,4 +14,3 @@ produced the basic files needed for your tool. You'll still need to handle the i
     "type": "git",
     "url": "git@github.com:intermine/someRepo.git"
   },```
-- [] add any css styles to [src/style.less](src/style.less)

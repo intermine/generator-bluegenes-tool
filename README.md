@@ -13,7 +13,7 @@ npm install -g yo
 npm install -g @intermine/generator-bluegenes-tool
 ```
 
-Then generate your new project:
+Then create a directory for your project, change into it and start the generator:
 
 ```bash
 yo @intermine/bluegenes-tool
