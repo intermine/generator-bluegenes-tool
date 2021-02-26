@@ -2,31 +2,26 @@
 // const SomePackage = require('PackageName');
 
 // make sure to export main, with the signature
-function main(el, service, imEntity, state, config) {
-  if (!state) state = {};
+function main(el, service, imEntity, state, config, navigate) {
+	if (!state) state = {};
 	if (!el || !service || !imEntity || !state || !config) {
 		throw new Error('Call main with correct signature');
 	}
-	// sample code here to convert the provided intermine object (e.g. perhaps
-	// an id) into an identifier the tool expects. e.g.:
-	// of course if your tool was built for intermine it might understand
-	// intermine ids already, but many others tools expect a gene symbol or
-	// protein accession, etc...
-	/**
-   * Example - you can delete this and replace with your own code *******
+	// Tips to ensure your tool works correctly in BlueGenes:
+	// - The `el` element is all yours, but please do not manipulate the DOM above this
+	// - Avoid ambiguous query selectors that may end up returning an element not belonging to this tool
+	// - Avoid relying on element IDs, as multiple instances of this tool may be present on one page
 
-    // protVista expects an accession, so convert intermine id to accession
+	/* Example - you can delete this and replace with your own code *******
 
-    var entity = imEntity.Protein;
+		// Sample code here to convert the provided InterMine object ID into the data the tool needs.
+		var entity = imEntity.Gene;
+		var mine = new imjs.Service(service);
+		mine.findById(entity.class, entity.value).then(function(obj) {
+			console.log(obj.name + ' is a ' + obj.class + ' you can find in ' + obj.organism.name);
+		});
+	*/
 
-    var columnToConvert = config.columnMapping[entity.class][entity.format];
-    var accession = new imjs.Service(service)
-        .findById(entity.class, entity.value)
-        .then(function(response) {
-        //put some code here to initialise your tool.
-    });
-
-  */
 	el.innerHTML = `
 		<div class="rootContainer">
 			<h1>Your Data Viz Here</h1>
