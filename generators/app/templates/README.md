@@ -15,15 +15,11 @@ All of the editable source files for css and js are in `src`. To bundle for prod
 
 #### CSS
 
-Assuming [less](http://lesscss.org/) is installed globally:
-
 ```
 npm run less
 ```
 
 #### JS
-
-Assuming [webpack](https://webpack.js.org/) is installed globally:
 
 ##### Single build:
 ```
