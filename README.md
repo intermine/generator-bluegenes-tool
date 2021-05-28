@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/intermine/generator-bluegenes-tool.svg?branch=master)](https://travis-ci.org/intermine/generator-bluegenes-tool)
 
-Generates a scaffold for [BlueGenes](https://github.com/intermine/bluegenes) tools, InterMine's new UI. See the [BlueGenes tool tutorial](https://github.com/intermine/bluegenes/tree/dev/docs/tools) for more info. 
+Generates a scaffold for [BlueGenes](https://github.com/intermine/bluegenes) tools, InterMine's new UI. See the [BlueGenes tool tutorial](http://intermine.org/im-docs/docs/webapp/tool-api/tutorial) for more info. 
 
 ## Installation
 
