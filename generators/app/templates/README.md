@@ -1,6 +1,6 @@
 #  <%= toolNameHuman %>
 
-<%= toolNameHuman %> is a tool made for [BlueGenes](http://bluegenes.apps.intermine.org) following BlueGenes Tool API.
+<%= toolNameHuman %> is a tool made for [BlueGenes](https://github.com/intermine/bluegenes) following BlueGenes Tool API.
 Add more description of your tool here! :)
 
 ## Licence
