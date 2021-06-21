@@ -27,6 +27,9 @@ module.exports = {
   },
 	externals: {
 		react: 'window.React',
-		'react-dom': 'window.ReactDOM'
+		'react-dom': 'window.ReactDOM'<% if (reactReq == "vega") { %>,
+		'vega': 'window.vega',
+		'vega-lite': 'window.vegaLite',
+		'vega-embed': 'window.vegaEmbed'<% } %>
 	}
 };
