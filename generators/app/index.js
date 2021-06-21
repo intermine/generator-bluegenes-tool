@@ -78,11 +78,24 @@ module.exports = class extends Generator {
         ]
       },
       {
-        type: 'confirm',
+        type: 'list',
         message:
-          'Initialise with React and Babel? This will allow you to use React and ECMAscript 2015+ features.',
+          'What JavaScript boilerplate do you want? Choosing React will also include Babel allowing you to use ECMAscript 2015+ features. React with vega-lite will in addition include sample code for using the graphing library. Your choice will not affect bundle size as React and vega-lite are included with BlueGenes.',
         name: 'reactReq',
-        default: false
+        choices: [
+          {
+            name: 'Vanilla',
+            value: 'js'
+          },
+          {
+            name: 'React',
+            value: 'react'
+          },
+          {
+            name: 'React with vega-lite',
+            value: 'vega'
+          }
+        ]
       },
       {
         type: 'confirm',
@@ -103,7 +116,7 @@ module.exports = class extends Generator {
     let reactSetupReq = '';
     let CSSLoader = '';
     let CSSLoaderDependency = '';
-    if (this.props.reactReq) {
+    if (this.props.reactReq !== 'js') {
       reactSetupReq = '.react-setup';
     }
     if (this.props.CSSLoaderReq) {
@@ -130,7 +143,8 @@ module.exports = class extends Generator {
       this.destinationPath('webpack.config.js'),
       {
         toolNameCljs: this.props.toolNameCljs,
-        CSSLoader
+        CSSLoader,
+        reactReq: this.props.reactReq
       }
     );
 
@@ -152,7 +166,8 @@ module.exports = class extends Generator {
         author: this.props.author,
         toolNameNpm: this.props.toolNameNpm,
         licence: this.props.licence,
-        CSSLoaderDependency
+        CSSLoaderDependency,
+        reactReq: this.props.reactReq
       }
     );
 
@@ -219,7 +234,8 @@ module.exports = class extends Generator {
     if (reactSetupReq) {
       this.fs.copyTpl(
         this.templatePath('src/RootContainer.react-setup.js'),
-        this.destinationPath('src/RootContainer.js')
+        this.destinationPath('src/RootContainer.js'),
+        { reactReq: this.props.reactReq }
       );
 
       this.fs.copyTpl(

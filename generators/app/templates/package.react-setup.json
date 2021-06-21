@@ -34,7 +34,8 @@
 	"license": "<%= licence %>",
 	"dependencies": {
 		"react": "^16.8.6",
-		"react-dom": "^16.8.6"
+		"react-dom": "^16.8.6"<% if (reactReq == "vega") { %>,
+    "react-vega": "^7.4.3"<% } %>
 	},
 	"devDependencies": {
 		"@babel/core": "^7.4.4",

@@ -12,11 +12,13 @@
   <!-- You can assume imjs is on the window.  -->
   <script src="node_modules/imjs/dist/im.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-
-  <% if (reactReq) { %>
+  <% if (reactReq != "js") { %>
+  <!-- These will be provided on the window by BlueGenes. -->
   <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
-  <% } %>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script><% if (reactReq == "vega") { %>
+  <script crossorigin src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script crossorigin src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script crossorigin src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script><% } %><% } %>
 
   <!-- These are the styles YOU implement in src/style.less -->
   <link rel="stylesheet" href="dist/style.css">
