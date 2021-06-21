@@ -100,8 +100,15 @@ module.exports = class extends Generator {
       {
         type: 'confirm',
         message:
-          'Would you like to add CSS-loader to your tool? It would allow you to import css files along with less in your components',
+          'Would you like to add CSS-loader to your tool? It would allow you to import css files along with less in your components.',
         name: 'CSSLoaderReq',
+        default: false
+      },
+      {
+        type: 'confirm',
+        message:
+          'Is this an official InterMine tool? If you answer yes, this will add the @intermine scope to your package name.',
+        name: 'isOfficialTool',
         default: false
       }
     ];
@@ -167,7 +174,8 @@ module.exports = class extends Generator {
         toolNameNpm: this.props.toolNameNpm,
         licence: this.props.licence,
         CSSLoaderDependency,
-        reactReq: this.props.reactReq
+        reactReq: this.props.reactReq,
+        isOfficialTool: this.props.isOfficialTool
       }
     );
 

@@ -1,5 +1,5 @@
 {
-	"name": "@intermine/<%=toolNameNpm%>",
+	"name": "<% if (isOfficialTool) { %>@intermine/<% } %><%=toolNameNpm%>",
 	"version": "1.0.0",
 	"main": "src/index.js",
 	"description": "",
